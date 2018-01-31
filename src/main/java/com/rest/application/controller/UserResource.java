@@ -26,15 +26,16 @@ public class UserResource implements AppConstants{
 	 */	
 @Autowired
 UserService userService;
+
 	/*
 	 * retrieve all users from the database
 	 */
 	@RequestMapping(value=RETRIEVE_REST_DATA,method=RequestMethod.GET)	
 	@Produces({MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})	
 	public ResponseEntity<List<User>> findAll(){
-		List<User>UserList= userService.getAll();
+		List<User>employeeList= userService.getAll();
 	
-		return new ResponseEntity<List<User>>(UserList,HttpStatus.OK);
+		return new ResponseEntity<List<User>>(employeeList,HttpStatus.OK);
 	}
 	/*
 	 * create new user into the database
@@ -108,6 +109,17 @@ UserService userService;
 		
 			return new ResponseEntity<User>(user,HttpStatus.NO_CONTENT);
 		
+	}
+	
+	@RequestMapping(value = "/user/lists", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> getAllUsers(){
+		List<User>users=userService.findAllUsersList();
+		
+		if(users.isEmpty()) {
+			return new ResponseEntity<List<User>>(users,HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
 	}
 
 }

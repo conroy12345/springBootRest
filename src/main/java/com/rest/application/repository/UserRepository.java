@@ -14,5 +14,5 @@ public interface UserRepository {
 	public User getByName(String name);
 	public  User save(User user);
 	public  User deleteUser(User user);	
-	
+	public User getByIdFromList(int id);
 }

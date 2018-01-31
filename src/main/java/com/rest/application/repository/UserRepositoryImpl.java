@@ -19,6 +19,7 @@ import com.rest.application.model.User;
 public class UserRepositoryImpl extends AbstractRepository<Integer, User> implements
 		UserRepository {
 
+	
 	@Autowired
 	EntityManager ent;
 	
@@ -60,4 +61,11 @@ public class UserRepositoryImpl extends AbstractRepository<Integer, User> implem
 		
 	}
 
+	@Override
+	public User getByIdFromList(int id) {
+		
+		return null;
+	}
+
+	
 }

@@ -15,6 +15,6 @@ public interface UserService {
 	public User save(User user);
 	public  User deleteUser(User user);
 	public  User updateUser(User user);
-	public boolean isUpdatedUnique(Integer id,String ssn);
+	public List<User> findAllUsersList();
 
 }
