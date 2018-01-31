@@ -57,10 +57,6 @@ UserRepository dao;
 		return user;
 	}
 
-	@Override
-	public boolean isUpdatedUnique(Integer id, String ssn) {
-		User employee = getByName(ssn);
-	        return ( employee == null || ((id != null) && (employee.getId() == id)));
-	}
+	
 
 }

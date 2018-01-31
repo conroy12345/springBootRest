@@ -22,7 +22,7 @@ public class QueryParam {
 		try {
 			result=stat.executeQuery("SELECT* FROM USERS");
 		while (result.next()){
-		users.add(new User(result.getInt("id"),result.getString("username"),result.getString("password")));
+		users.add(new User(result.getInt("id"),result.getString("username"),result.getString("password"),result.getString("placeOfBirth")));
 		
 		}
 		} catch (SQLException e) {
@@ -33,7 +33,7 @@ public class QueryParam {
 	}
 	
 	public static User saveUser(User user) {
-		PreparedStatement pst = connect.createQuery("INSERT INTO usertable (ID,NAME,ADDRESS) VALUES(?,?,?)");
+		PreparedStatement pst = connect.createQuery("INSERT INTO usertable (ID,NAME,ADDRESS) VALUES(?,?,?,?)");
 		try {
 			pst.setInt(1, user.getId());
 			pst.setString(2, user.getName());
@@ -57,6 +57,7 @@ public class QueryParam {
 			user.setId(rs.getInt("id"));
 			user.setName(rs.getString("name"));
 			user.setAddress(rs.getString("address"));
+			user.setPlaceOfBirth(rs.getString("PLACE_OF_BIRTH "));
 			System.out.println(user);
 		}
 		} catch (SQLException e) {
@@ -76,6 +77,7 @@ public static User getByName(User user,String name){
 			user.setId(rs.getInt("id"));
 			user.setName(rs.getString("name"));
 			user.setAddress(rs.getString("address"));
+			user.setPlaceOfBirth(rs.getString("PLACE_OF_BIRTH "));
 			System.out.println(user);
 		}
 		} catch (SQLException e) {

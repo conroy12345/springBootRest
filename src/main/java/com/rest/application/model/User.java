@@ -18,18 +18,20 @@ public class User {
 private String name;
 @Column(name = "ADDRESS", nullable = false)
 private String address;
-
+@Column(name = "PLACE_OF_BIRTH", nullable = false)
+private String placeOfBirth;
 
 public User() {
 	
 }
 
 
-public User(int id, String name, String address) {
-	
+public User(int id, String name, String address, String placeOfBirth) {
+	super();
 	this.id = id;
 	this.name = name;
 	this.address = address;
+	this.placeOfBirth = placeOfBirth;
 }
 
 
@@ -51,6 +53,20 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
+
+
+
+
+public String getPlaceOfBirth() {
+	return placeOfBirth;
+}
+
+
+public void setPlaceOfBirth(String placeOfBirth) {
+	this.placeOfBirth = placeOfBirth;
+}
+
+
 @Override
 public int hashCode() {
 	final int prime = 31;
@@ -85,7 +101,7 @@ public boolean equals(Object obj) {
 }
 @Override
 public String toString() {
-	return "User [id=" + id + ", name=" + name + ", address=" + address + "]";
+	return "User [id=" + id + ", name=" + name + ", address=" + address + ", placeOfBirth=" + placeOfBirth + "]";
 }
 
 
