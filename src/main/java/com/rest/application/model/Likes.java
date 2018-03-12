@@ -1,4 +1,4 @@
-package com.liking.test.mode;
+package com.rest.application.mode;
 
 public class Likes {
 private int likes;
